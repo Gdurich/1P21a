@@ -1,4 +1,5 @@
 ﻿using Terminal.Helpers;
+using Terminal.Models.TerminalRequests;
 using Terminal.Models.TerminalRequests.Base;
 
 namespace Terminal.Handlers
@@ -73,6 +74,11 @@ namespace Terminal.Handlers
         static public List<TerminalRequest> GetCommandList() 
         {
             return terminalRequests;
+        }
+
+        internal void AddCommandObject(mkdir mkdir)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
