@@ -15,7 +15,9 @@ while (true)
 void Init()
 {
     commandHandler.AddCommandObject(new CD_TerminalRequest());
-    commandHandler.AddCommandObject(new Mkdir_TerminalRequest());
-    commandHandler.AddCommandObject(new Zip_TerminalRequest());
+    // commandHandler.AddCommandObject(new Mkdir_TerminalRequest());
+    // commandHandler.AddCommandObject(new Zip_TerminalRequest());
     commandHandler.AddCommandObject(new Extract_TerminalRequest());
+    commandHandler.AddCommandObject(new Copy_TerminalRequest());
 }
+

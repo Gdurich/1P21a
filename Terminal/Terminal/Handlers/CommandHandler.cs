@@ -76,10 +76,10 @@ namespace Terminal.Handlers
             return terminalRequests;
         }
 
-        internal void AddCommandObject(mkdir mkdir)
-        {
-            throw new NotImplementedException();
-        }
+      //  internal void AddCommandObject(mkdir mkdir)
+      //  {
+     //       throw new NotImplementedException();
+     //   }
         #endregion
     }
 }

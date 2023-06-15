@@ -1,11 +1,11 @@
 ﻿using System;
 using Terminal.Models.TerminalRequests;
 
-namespace Terminal.Models.TerminalRequests
-{
-    public class Mkdir_TerminalRequest : TerminalRequest
-    {
-        public override string CommandKeyword => "mkdir";
+//namespace Terminal.Models.TerminalRequests
+//{
+ //   public class Mkdir_TerminalRequest : TerminalRequest
+   // {
+   /*     public override string CommandKeyword => "mkdir";
 
         public override TerminalResponse Execute(string[] commandArgs)
         {
@@ -30,3 +30,4 @@ namespace Terminal.Models.TerminalRequests
         }
     }
 }
+   */

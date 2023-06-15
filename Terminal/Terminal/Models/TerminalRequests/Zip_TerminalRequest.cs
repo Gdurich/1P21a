@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Terminal.Models.TerminalRequests.Base;
 
-namespace Terminal.Models.TerminalRequests
-{
-    public class Zip_TerminalRequest : TerminalRequest
+//namespace Terminal.Models.TerminalRequests
+//{
+   /* public class Zip_TerminalRequest : TerminalRequest
     {
         public override string CommandKeyword => "zip";
 
@@ -34,3 +34,4 @@ namespace Terminal.Models.TerminalRequests
         }
     }
 }
+   */
