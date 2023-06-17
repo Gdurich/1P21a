@@ -75,11 +75,6 @@ namespace Terminal.Handlers
         {
             return terminalRequests;
         }
-
-        internal void AddCommandObject(mkdir mkdir)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
     }
 }
