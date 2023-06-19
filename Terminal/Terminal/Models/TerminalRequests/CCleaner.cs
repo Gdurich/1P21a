@@ -11,41 +11,43 @@ using Terminal.Models.TerminalRequests.Base;
 
 namespace Terminal.Models.TerminalRequests
 {
-    internal class ClearFile : TerminalRequest
+    internal class CCleaner : TerminalRequest
     {
         List<string> extension = new List<string>();
-        string message = "Deleted files: [";
 
-        public ClearFile()
+        public CCleaner()
         {
-            CommandName = "clearfile";
+            CommandName = "ccleaner";
         }
 
         public override void Execute(CommandHandler handler, string commandBody = "")
         {
             try
             {
-                switch (commandBody)
+                if (string.IsNullOrEmpty(commandBody))
+                    throw new Exception("Set directory path or name!");
+
+                if (Directory.Exists(commandBody))
                 {
-                    case "..":
-                        if (!handler.SetCurrentDirectory(CommandHandler.CurrentDirectoryPath
-                            .Substring(0, CommandHandler.CurrentDirectoryPath.LastIndexOf('\\'))))
-                        {
-                            throw new Exception("Directory not exists");
-                        }
-                        break;
-                    default:
-                        if (!handler.SetCurrentDirectory(commandBody)) throw new Exception("Directory not exists");
-                        break;
+                    DirectoryInfo directory = new DirectoryInfo(commandBody);
+                    StartAll(directory);
                 }
+                else if (Directory.Exists(Path.Combine(CommandHandler.CurrentDirectoryPath, commandBody)))
+                {
+                    DirectoryInfo directory = new DirectoryInfo(Path.Combine(CommandHandler.CurrentDirectoryPath, commandBody));
+                    StartAll(directory);
+                }
+                else
+                    throw new Exception("Input correct path");
+                    
             }
             catch(Exception ex)
             {
                 ConsoleHelper.WriteColorLine($"Error: {ex.Message}", ConsoleColor.DarkRed);
-            }
 
-            DirectoryInfo directory = new DirectoryInfo(CommandHandler.CurrentDirectoryPath);
-            StartAll(directory);
+                return;
+            }
+            
         }
 
         public void RegistryInfo()
@@ -87,7 +89,7 @@ namespace Terminal.Models.TerminalRequests
 
                     if (!extension.Contains(ext))
                     {
-                        message += $"{file.FullName}\n";
+                        Console.WriteLine($"{file.FullName} || was deleted\n");
                         file.Delete();
                     }
                 }
@@ -113,8 +115,7 @@ namespace Terminal.Models.TerminalRequests
             RegistryInfo();
 
             DeleteNonRegistered(directory);
-            
-            Console.WriteLine(message + ']');
+           
         }
     }
 }

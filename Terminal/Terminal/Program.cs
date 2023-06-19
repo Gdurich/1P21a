@@ -17,5 +17,5 @@ void Init()
     commandHandler
         .AddCommandObject(new CD_TerminalRequest())
         .AddCommandObject(new TreeTerminalRequest())
-        .AddCommandObject(new ClearFile());
+        .AddCommandObject(new CCleaner());
 }
